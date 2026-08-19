@@ -9,6 +9,18 @@ tags: [mam, torrents, networking, troubleshooting]
 
 This is an AI Skill for agents (e.g., Hermes, OpenClaw, Claude) to help users resolve the common "Client cannot accept incoming connections" error on MyAnonamouse. This error occurs when the MAM system cannot verify that your Torrent client is reachable from the outside world.
 
+
+
+## CRITICAL GUARDRAIL: No Direct Site Interaction
+
+**The agent must NOT access the MyAnonamouse website directly.**
+
+Do not use browser tools, curl, or any API requests to interact with the MAM website. Interacting with the site via AI automation is a violation of their terms and can result in the user being **immediately and permanently banned**.
+
+**Correct Procedure:**
+1. Perform all diagnostics via network tools (netstat, nc, etc.).
+2. Provide the user with the exact steps, values, and settings they need.
+3. Walk the user through the process, allowing them to perform the actual website interactions manually.
 ## The Logic of the Failure
 
 For MAM to verify your connection, three things must be true:
