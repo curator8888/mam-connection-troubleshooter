@@ -7,7 +7,7 @@ tags: [mam, torrents, networking, troubleshooting]
 
 # MAM Connection Troubleshooter 🌐
 
-This skill helps users resolve the common "Client cannot accept incoming connections" error on MyAnonamouse. This error occurs when the MAM system cannot verify that your BitTorrent client is reachable from the outside world.
+This is an AI Skill for agents (e.g., Hermes, OpenClaw, Claude) to help users resolve the common "Client cannot accept incoming connections" error on MyAnonamouse. This error occurs when the MAM system cannot verify that your Torrent client is reachable from the outside world.
 
 ## The Logic of the Failure
 
@@ -41,6 +41,8 @@ If Step 1 and 2 are successful, the issue is almost certainly a mismatch in the 
 
 ## The "VPN Trap" (Critical Warning)
 
+This is especially critical for VPN users (e.g., ProtonVPN) where the external port changes every time the VPN reconnects.
+
 If the user is using a VPN (especially those with dynamic port forwarding like ProtonVPN), the external port **changes every time the VPN reconnects**.
 
 **The Symptom:** The connection works today, but fails tomorrow despite no changes to the client.
@@ -54,6 +56,14 @@ If the user is using a VPN (especially those with dynamic port forwarding like P
 | ✅ | ❌ | **Network Issue** | Check Port Forwarding / Firewall / VPN. |
 | ✅ | ✅ | **Profile Issue** | Update port in MAM Client Settings. |
 
+
+
+## AI Automation Capabilities
+
+When deployed to an AI agent with network and firewall access, this skill enables the agent to move from diagnosis to remediation. The agent can:
+- Automatically detect the active external port.
+- Apply necessary firewall rules (e.g., via ufw or iptables).
+- Verify the connection status in real-time before alerting the user.
 ## Troubleshooting Script (Python)
 
 Save as `scripts/check_mam_port.py`. This script allows the agent to perform a quick external check for a user.
